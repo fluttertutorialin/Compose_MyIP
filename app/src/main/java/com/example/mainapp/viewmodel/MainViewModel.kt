@@ -38,4 +38,13 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
             emit(Resource.error(data = null, message = exception.message ?: "Error Occurred!"))
         }
     }*/
+
+    /*@Suppress("UNCHECKED_CAST")
+    companion object {
+        val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
+            override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
+                return MainViewModel(MainRepository(ApiHelper(RetrofitBuilder.apiService))) as T
+            }
+        }
+    }*/
 }
