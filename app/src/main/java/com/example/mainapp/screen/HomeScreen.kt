@@ -12,24 +12,23 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.AppBarDefaults
-import androidx.compose.material.Card
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
-import androidx.compose.material3.Divider
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.findmyip.model.ComputerDetails
@@ -59,13 +58,13 @@ fun HomeScreen(viewModel: MainViewModel) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SetData(getData: Response<ComputerDetails>) {
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("Home screen") },
-                elevation = AppBarDefaults.TopAppBarElevation
             )
         }
     ) {
@@ -77,8 +76,8 @@ fun SetData(getData: Response<ComputerDetails>) {
         ) {
             Card(
                 modifier = Modifier.padding(8.dp),
-                elevation = 16.dp,
-                backgroundColor = Color.White
+                elevation = CardDefaults.cardElevation(defaultElevation = 16.dp),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
             ) {
                 Column(
                     modifier = Modifier.padding(16.dp),
@@ -89,21 +88,21 @@ fun SetData(getData: Response<ComputerDetails>) {
                         textAlign = TextAlign.Center,
                         style = TextStyle(
                             fontSize = 22.sp,
-                            color = Color.Blue,
+                            color = Color.Black,
                             fontWeight = FontWeight.Bold // Bold style
                         )
                     )
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "IP :",
+                            text = "IP: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -116,18 +115,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
                     
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Network :",
+                            text = "Network: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -141,16 +139,16 @@ fun SetData(getData: Response<ComputerDetails>) {
                         )
                     }
                     // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "version ::",
+                            text = "version: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -164,16 +162,16 @@ fun SetData(getData: Response<ComputerDetails>) {
                         )
                     }
                     // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "city ::",
+                            text = "city: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -187,17 +185,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                         )
                     }
                     // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Region ::",
+                            text = "Region: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -211,17 +209,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                         )
                     }
                     // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Region code ::",
+                            text = "Region code: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -235,17 +233,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                         )
                     }
                     // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "country:",
+                            text = "country: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -259,17 +257,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                         )
                     }
                     // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Country Name:",
+                            text = "Country Name: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -283,16 +281,16 @@ fun SetData(getData: Response<ComputerDetails>) {
                         )
                     }
                     // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Country Code:",
+                            text = "Country Code: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -306,17 +304,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                         )
                     }
                     // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Country Code iso3:",
+                            text = "Country Code iso3: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -329,18 +327,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Country Capital",
+                            text = "Country Capital: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -353,18 +350,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Country TId",
+                            text = "Country TId: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -377,17 +373,16 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Continent Code",
+                            text = "Continent Code: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -400,18 +395,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "postal",
+                            text = "postal: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -424,19 +418,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
-
-
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Latitude",
+                            text = "Latitude: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -449,18 +441,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Longitude",
+                            text = "Longitude: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -473,18 +464,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "TimeZone",
+                            text = "TimeZone: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -497,18 +487,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Utc Offset",
+                            text = "Utc Offset: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -521,18 +510,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Country Calling Code",
+                            text = "Country Calling Code: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -545,18 +533,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Currency",
+                            text = "Currency: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -569,18 +556,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Currency Name",
+                            text = "Currency Name: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -593,18 +579,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Currency Name",
+                            text = "Currency Name: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -617,18 +602,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Languages",
+                            text = "Languages: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -641,18 +625,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Country Area",
+                            text = "Country Area: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -665,18 +648,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Country Population",
+                            text = "Country Population: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -689,18 +671,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Asn",
+                            text = "Asn: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -713,18 +694,17 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
 
                     Row(
                         modifier = Modifier.padding(6.dp),
                     ) {
                         Text(
-                            text = "Org",
+                            text = "Org: ",
                             textAlign = TextAlign.Center,
                             style = TextStyle(
                                 fontSize = 20.sp,
-                                color = Color.Blue,
+                                color = Color.Black,
                                 fontWeight = FontWeight.Bold // Bold style
                             )
                         )
@@ -737,8 +717,7 @@ fun SetData(getData: Response<ComputerDetails>) {
                             )
                         )
                     }
-                    // Divider
-                    Divider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
+                    HorizontalDivider(modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp))
                 }
             }
         }
