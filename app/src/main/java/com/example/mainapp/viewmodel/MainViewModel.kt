@@ -24,8 +24,7 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
                 val  getData = mainRepository.getUsers()
                 computerDetails.value = getData
             } catch (e: Exception) {
-
-                Log.e("Toast",e.message.toString())
+                Log.e("Error" ,e.message.toString())
             }
         }
     }
