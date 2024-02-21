@@ -1,3 +1,4 @@
+/*
 package com.example.mainapp.viewmodel
 
 import androidx.lifecycle.ViewModel
@@ -12,4 +13,4 @@ class ViewModelFactory(private val apiHelper: ApiHelper) : ViewModelProvider.Fac
         }
         throw IllegalArgumentException("Unknown class name")
     }
-}
+}*/
