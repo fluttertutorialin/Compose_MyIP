@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.findmyip.model.ComputerDetails
@@ -43,10 +44,11 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
         }
     }*/
 
-    @Suppress("UNCHECKED_CAST")
+   @Suppress("UNCHECKED_CAST")
     companion object {
         val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
+                val savedStateHandle = extras.createSavedStateHandle()
                 return MainViewModel(MainRepository(ApiHelper(RetrofitBuilder.apiService))) as T
             }
         }
